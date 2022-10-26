@@ -19,10 +19,14 @@ class Graph:
     
     #display adjcency list
     def display(self):
+        ans = []
         for v in self.adj_list.keys():
             vertex = v
             con_edges = self.adj_list[v]
             print(f"{vertex} : {con_edges}")
+            ans.append(vertex)
+            ans.extend(self.adj_list[v])
+        return ans
 
 G = Graph()
 G.add_vertex('A')
@@ -37,4 +41,4 @@ G.add_edges('A','D')
 G.add_edges('B','D')
 G.add_edges('C','A')
 
-G.display()
+adj_list = G.display()
